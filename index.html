@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eng. Coelho - Projetos e serviços</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+    <div class="container">
+        <div class="logo-container">
+            <div class="faixa-superior"></div>
+            <div class="logo">
+    <div class="logo-content">
+        <img src="images/logo-pequena.png" alt="Logo" class="logo-img">
+        <div class="logo-text">
+            <h1>ENG. COELHO</h1>
+            <p>Engenharia & Perícias</p>
+        </div>
+    </div>
+</div>
+            <div class="faixa-inferior"></div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h2>Soluções em Engenharia</h2>
+            <p>Projetos - Assistência Técnica Judicial - Avaliações e Vistorias</p>
+            <a href="#orcamento" class="btn">Solicitar Orçamento</a>
+        </div>
+    </section>
+
+    <section id="servicos" class="services">
+        <div class="container">
+            <h2>Nossos Serviços</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-drafting-compass"></i>
+                    <h3>Projetos</h3>
+                    <p>Projetos - Assistência Técnica Judicial - Avaliações e Vistorias</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-gavel"></i>
+                    <h3>Perícias Judiciais</h3>
+                    <p>Assistência técnica e laudos para processos judiciais com embasamento técnico</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-file-alt"></i>
+                    <h3>Laudos Técnicos</h3>
+                    <p>Cautelares e de entrega de obra, garantindo a qualidade e conformidade</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-home"></i>
+                    <h3>Avaliações</h3>
+                    <p>De imóveis com precisão e metodologia reconhecida no mercado</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-search"></i>
+                    <h3>Vistorias</h3>
+                    <p>Detecção de problemas e orientações técnicas para sua propriedade</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-balance-scale"></i>
+                    <h3>Perícias</h3>
+                    <p>Técnicas especializadas para diversos fins com relatórios detalhados</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="orcamento" class="budget">
+        <div class="container">
+            <h2>Solicite seu Orçamento</h2>
+            <form id="budget-form">
+                <div class="form-group">
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Telefone:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="service">Serviço Desejado:</label>
+                    <select id="service" name="service" required>
+                        <option value="">Selecione um serviço</option>
+                        <option value="Projeto para construir/reformar/regularizar">Projeto para construir/reformar/regularizar</option>
+                        <option value="Perícia judicial">Perícia judicial</option>
+                        <option value="Laudo técnico">Laudo técnico</option>
+                        <option value="Avaliação de imóvel">Avaliação de imóvel</option>
+                        <option value="Vistoria técnica">Vistoria técnica</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Detalhes do Serviço:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn">Enviar para WhatsApp</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="sobre" class="about">
+        <div class="container">
+            <div class="about-content">
+                <h2>Sobre o Eng. Coelho</h2>
+                <p>Profissional com vasta experiência em engenharia civil, especializado em projetos, perícias e avaliações técnicas. Comprometido com a excelência e qualidade técnica em todos os serviços prestados.</p>
+                <p>Atendimento personalizado e soluções técnicas adequadas para cada necessidade, garantindo segurança, conformidade com as normas e satisfação dos clientes.</p>
+                <div class="crea">
+                    <p>CREA: (inclua seu número aqui)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="contact">
+        <div class="container">
+            <h2>Entre em Contato</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <p>(19) 99665-5399</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <p><a href="https://wa.me/5519996655399" target="_blank">Envie uma mensagem</a></p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>engenheirocoelho.civil@gmail.com</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-instagram"></i>
+                    <p><a href="https://www.instagram.com/eng.coelho/" target="_blank">@eng.coelho</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Eng. Coelho - Todos os direitos reservados</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/eng.coelho/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/5519996655399" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
