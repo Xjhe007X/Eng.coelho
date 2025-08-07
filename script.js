@@ -1,79 +1,67 @@
+// Controle de Temas
+const themes = [
+    { name: "light", icon: "fa-sun", label: "Amarelo Claro" },
+    { name: "default", icon: "fa-moon", label: "Amarelo Original" }, 
+    { name: "dark", icon: "fa-moon", label: "Modo Noturno" }
+];
+
+let currentThemeIndex = 0;
+
+// Modifique a função rotateTheme para:
+function rotateTheme() {
+    currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+    const theme = themes[currentThemeIndex];
+    
+    document.body.setAttribute('data-theme', theme.name);
+    localStorage.setItem('siteTheme', theme.name);
+    
+    const icon = document.querySelector('.theme-toggle i');
+    icon.className = `fas ${theme.icon}`;
+    icon.title = theme.label;
+    
+    // Forçar redesenho para garantir a aplicação do tema
+    document.body.style.display = 'none';
+    document.body.offsetHeight; // Trigger reflow
+    document.body.style.display = '';
+}
+// Carrega tema salvo
+function loadTheme() {
+    const savedTheme = localStorage.getItem('siteTheme') || 'light';
+    const themeIndex = themes.findIndex(t => t.name === savedTheme);
+    currentThemeIndex = themeIndex >= 0 ? themeIndex : 0;
+    
+    const theme = themes[currentThemeIndex];
+    document.body.setAttribute('data-theme', theme.name);
+    
+    const icon = document.querySelector('.theme-toggle i');
+    icon.className = `fas ${theme.icon}`;
+    icon.title = theme.label;
+}
+
+// Inicializa
 document.addEventListener('DOMContentLoaded', function() {
-    // Formulário de orçamento
-    const budgetForm = document.getElementById('budget-form');
+    loadTheme();
+    document.querySelector('.theme-toggle').addEventListener('click', rotateTheme);
+});
+
+// Formulário WhatsApp
+document.getElementById('budget-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+    const service = document.getElementById('service').value;
+    const message = document.getElementById('message').value;
     
-    if (budgetForm) {
-        budgetForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Pegar valores do formulário
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const service = document.getElementById('service').value;
-            const message = document.getElementById('message').value;
-            
-            // Criar mensagem para WhatsApp
-            const whatsappMessage = `Olá, gostaria de solicitar um orçamento!\n\n` +
-                                   `*Nome:* ${name}\n` +
-                                   `*Email:* ${email}\n` +
-                                   `*Telefone:* ${phone}\n` +
-                                   `*Serviço:* ${service}\n` +
-                                   `*Detalhes:* ${message}\n\n` +
-                                   `Aguardo seu retorno!`;
-            
-            // Codificar mensagem para URL
-            const encodedMessage = encodeURIComponent(whatsappMessage);
-            
-            // Redirecionar para WhatsApp
-            window.open(`https://wa.me/5519996655399?text=${encodedMessage}`, '_blank');
-            
-            // Limpar formulário
-            budgetForm.reset();
-            
-            // Feedback para o usuário
-            alert('Você será redirecionado para o WhatsApp para concluir sua solicitação. Obrigado!');
-        });
-    }
-    
-    // Smooth scrolling para links internos
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            }
-        });
+    const whatsappMessage = `Olá, gostaria de solicitar um orçamento para:%0A%0A*Serviço:* ${service}%0A*Nome:* ${name}%0A*Detalhes:* ${message}`;
+    window.open(`https://wa.me/5519996655399?text=${whatsappMessage}`, '_blank');
+});
+
+// Animação para todos os ícones
+document.querySelectorAll('.service-card i, .contact-item i, .social-links i').forEach(icon => {
+    icon.addEventListener('mouseover', () => {
+        icon.style.transform = 'scale(1.1)';
     });
-    
-    // Adicionar classe ativa ao menu de navegação
-    const sections = document.querySelectorAll('section');
-    const navItems = document.querySelectorAll('nav ul li a');
-    
-    window.addEventListener('scroll', function() {
-        let current = '';
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            
-            if (pageYOffset >= (sectionTop - 100)) {
-                current = section.getAttribute('id');
-            }
-        });
-        
-        navItems.forEach(item => {
-            item.classList.remove('active');
-            if (item.getAttribute('href') === `#${current}`) {
-                item.classList.add('active');
-            }
-        });
+    icon.addEventListener('mouseout', () => {
+        icon.style.transform = 'scale(1)';
     });
 });
